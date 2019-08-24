@@ -1,6 +1,7 @@
 import React from 'react';
 import Dashboard from "./Dashboard";
 import Store from './Store';
+import './main.scss';
 
 
 
