@@ -1,14 +1,46 @@
 import React from 'react';
-import { red } from '@material-ui/core/colors';
 
-const CTX = React.createContext();
 
-export default function Store() {
+export const CTX = React.createContext();
 
-    const reducer = React.useReducer(reducer, initState);
+const initState = {
+    general: [
+        {from: 'Delane', msg: 'hi'},
+        {from: 'Nico', msg: 'hi'},
+        {from: 'Eric', msg: 'hi'}
+    ],
+    general2: [
+        {from: 'Beth', msg: 'hi'},
+        {from: 'Kelly', msg: 'hi'},
+        {from: 'Obama ', msg: 'hi'}
+    ]
+}
+
+function reducer(state, action) {
+    const {from, msg, topic} = action.payload;
+    switch(action.type) {
+        case 'RECEIVE MESSAGE':
+            return {
+                ...state,
+                [topic]: [
+                    ...state[topic],
+                    
+                        {from, msg}
+                    
+                ]
+            }
+
+            default:
+                return state
+    }
+}
+
+export default function Store(props) {
+
+    const reducerHook = React.useReducer(reducer, initState);
     return(
-        <CTX.Provicder value ={}>
+        <CTX.Provider value ={reducerHook}>
             {props.children}
-        </CTX.Provicder>
+        </CTX.Provider>
     )
 } 
