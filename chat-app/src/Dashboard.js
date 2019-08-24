@@ -8,7 +8,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import {CTX} from "./Store";
+import {CTX} from './Store';
+import Abutton from './Awesomebutton'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -95,10 +96,9 @@ export default function Dashboard() {
                             onChange={e => changeTextValue(e.target.value)}
                         />
 
-                
-                        <Button color="primary" className={classes.button}>
-                            Send
-                </Button>
+                <Abutton className = {classes.button}>
+                        
+                </Abutton>
             </div>
         </Paper>
         </div>
