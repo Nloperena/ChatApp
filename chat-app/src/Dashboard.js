@@ -6,6 +6,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,7 +26,8 @@ const useStyles = makeStyles(theme => ({
   },
   chatWindow: {
     width: '70%',
-    height: '300px'
+    height: '300px',
+    padding: '20px'
   },
   chatBox: {
     width: '85%'
@@ -35,7 +38,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function PaperSheet() {
+
   const classes = useStyles();
+  const [textValue, changeTextValue] = React.useState('');
 
   return (
     <div>
@@ -75,7 +80,17 @@ export default function PaperSheet() {
             </div>
         </div>
         <div className = {classes.flex}>
+                    <TextField
+                        label="Send a message"
+                        className={classes.chatBox}
+                        value={textValue}
+                        onChange={e => changeTextValue(e.target.value)}
+                    />
 
+            
+                    <Button color="primary" className={classes.button}>
+                        Send
+            </Button>
         </div>
       </Paper>
     </div>
