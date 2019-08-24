@@ -5,15 +5,15 @@ import io from 'socket.io-client'
 export const CTX = React.createContext();
 
 const initState = {
-    general: [
-        {from: 'Delane', msg: 'hi'},
-        {from: 'Nico', msg: 'hi'},
-        {from: 'Eric', msg: 'hi'}
+    Chat1: [
+        {from: 'Delane', msg: 'Hello'},
+        {from: 'Nico', msg: 'Welcome to my chat app'},
+        {from: 'Eric', msg: 'Open two pages to get started'}
     ],
-    general2: [
-        {from: 'Beth', msg: 'hi'},
-        {from: 'Kelly', msg: 'hi'},
-        {from: 'Obama ', msg: 'hi'}
+    Chat2: [
+        {from: 'Beth', msg: 'This is a second page'},
+        {from: 'Kelly', msg: 'If you leave the app messages will not be saved because they are not dupilacted in a database'},
+        {from: 'Obama ', msg: 'I am the 44th president of the U.S.A.'}
     ]
 }
 
@@ -57,7 +57,7 @@ export default function Store(props) {
 
     }
 
-    const user = 'Nicholas' + Math.random(100).toFixed(2)
+    const user = 'User#' + Math.random(100).toFixed(2)
 
     
     return(

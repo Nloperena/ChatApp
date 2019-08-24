@@ -2,16 +2,16 @@ import React from 'react';
 import {AwesomeButton} from 'react-awesome-button';
 import 'react-awesome-button/dist/themes/theme-rickiest.css';
 
-function Abutton() {
+function AButton() {
     return (
       <AwesomeButton  
         size="small"
-        type="primary"
+        
       >
           Send
       </AwesomeButton>
     );
   }
 
-  export default Abutton;
+  export default AButton;
   
