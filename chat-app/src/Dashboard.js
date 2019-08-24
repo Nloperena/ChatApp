@@ -5,10 +5,12 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Button from '@material-ui/core/Button';
 import Chip from '@material-ui/core/Chip';
 import TextField from '@material-ui/core/TextField';
 import {CTX} from './Store';
 import Abutton from './Awesomebutton'
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,7 +45,7 @@ export default function Dashboard() {
   const classes = useStyles();
 
     //Context Store
-    const [allChats] = React.useContext(CTX);
+    const {allChats, sendChatAction} = React.useContext(CTX);
     const topics = Object.keys(allChats);
 
     //local state
@@ -95,7 +97,25 @@ export default function Dashboard() {
                             onChange={e => changeTextValue(e.target.value)}
                         />
 
-                <Abutton className = {classes.button}>
+                <Button 
+                    color="primary" 
+                    className={classes.button}
+                    onClick = {() => {
+                        sendChatAction(textValue)
+                        changeTextValue('');
+                    }
+                }
+                    >
+                    Primary
+                </Button>
+                <Abutton 
+                    className = {classes.button}
+                    onClick = {() => {
+                        sendChatAction(textValue)
+                        changeTextValue('');
+                    }
+                }
+                >
                         
                 </Abutton>
             </div>
