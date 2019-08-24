@@ -45,7 +45,7 @@ export default function Dashboard() {
   const classes = useStyles();
 
     //Context Store
-    const {allChats, sendChatAction} = React.useContext(CTX);
+    const {allChats, sendChatAction, user} = React.useContext(CTX);
     const topics = Object.keys(allChats);
 
     //local state
@@ -101,14 +101,14 @@ export default function Dashboard() {
                     color="primary" 
                     className={classes.button}
                     onClick = {() => {
-                        sendChatAction(textValue)
+                        sendChatAction({from: user, msg: textValue, topic: activeTopic})
                         changeTextValue('');
                     }
                 }
                     >
                     Primary
                 </Button>
-                <Abutton 
+                {/* <Abutton 
                     className = {classes.button}
                     onClick = {() => {
                         sendChatAction(textValue)
@@ -117,7 +117,7 @@ export default function Dashboard() {
                 }
                 >
                         
-                </Abutton>
+                </Abutton> */}
             </div>
         </Paper>
         </div>
